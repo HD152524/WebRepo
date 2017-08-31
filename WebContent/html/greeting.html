@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function greeting(nation) {
+            if(nation === 'k'){
+                document.getElementById("result").innerHTML = "안녕하세요";
+            }
+            if(nation === 'c'){
+                document.getElementById("result").innerHTML = "你好";
+            }
+            if(nation === 'u'){
+                document.getElementById("result").innerHTML = "Hello";
+            }
+        }
+        console.log('greeting end');
+    </script>
+</head>
+<body>
+    <p>각 나라의 인사말</p>
+    <button onclick="greeting('k');">한국</button> <button onclick="greeting('u');">USA</button>
+    <button onclick="greeting('c');">中国</button>
+    <p id="result"></p>
+</body>
+</html>

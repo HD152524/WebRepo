@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function sum(){
+            var n = parseInt(document.getElementById("num").value);
+
+            var sum = 0;
+            for (var i=1;i<=n;i++){
+                sum+=i;
+            }
+            document.getElementById("result").innerHTML = sum;
+        }
+
+    </script>
+</head>
+<body>
+    <input type = "text" id="num"/> <button onclick = "sum();">계산</button><br>
+    <p id = "result"></p>
+</body>
+</html>
