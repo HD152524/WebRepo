@@ -3,6 +3,7 @@ package org.dimigo.servlet;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +32,6 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WebClass/jsp/login.jsp");
     }
 }

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Home</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link rel="stylesheet" href="/WebClass/css/footer.css">
+<link rel="stylesheet" href="../css/footer.css">
 <style>
 div.container {
   padding-top: 30px;
@@ -37,7 +37,7 @@ function menu_out(e) {
   	<%@ include file="menu.jsp" %>
   	
     <%-- 세션이 없는 경우 --%>
-    	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/login">Sign in</a>
+    	<a class="text-bold text-white" style="text-decoration: none" href="./login.jsp">Sign in</a>
     	<span class="text-bold text-white">&nbsp; or &nbsp;</span>
     	<a class="text-bold text-white" style="text-decoration: none" href="">Sign up</a>
     <%-- 세션이 있는 경우 --%>
