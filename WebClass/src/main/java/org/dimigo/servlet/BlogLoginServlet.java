@@ -16,45 +16,30 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@WebServlet(name = "LoginServlet", urlPatterns="/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "BlogLoginServlet", urlPatterns="/bloglogin")
+public class BlogLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         request.setCharacterEncoding("utf-8");
         String id = request.getParameter("id");
         String pwd = request.getParameter("pwd");
         //id, pwd 정합성 체크
-        boolean result = true;
 
         HttpSession session = request.getSession();
-        if(result){
+        if(id.equals("test@naver.com")){
             UserVO user = new UserVO();
             user.setId(id);
-            user.setNickname("asdf");
-            user.setName("ㅋㅌㅊㅍ");
+            user.setNickname("사용자 닉네임");
+            user.setName("사용자 이름");
             session.setAttribute("user", user);
-
-            RequestDispatcher rd = request.getRequestDispatcher("jsp/home.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("myblog/index.jsp");
             rd.forward(request,response);
         }
         else{
             session.setAttribute("msg", "ERROR");
-            RequestDispatcher rd = request.getRequestDispatcher("jsp/login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("myblog/login.jsp");
             rd.forward(request,response);
-
         }
-    }
-    protected void doPost2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        String id = request.getParameter("id");
-        String pwd = request.getParameter("pwd");
-        response.setContentType("application/json;charset=utf-8");
-        PrintWriter out = response.getWriter();
 
-        Gson gson = new Gson();
-        Map<String, String> a = new HashMap<String, String>();
-        a.put("id",id);
-        out.write(gson.toJson(a));
-        out.close();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

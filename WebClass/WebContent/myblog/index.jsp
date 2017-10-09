@@ -1,3 +1,5 @@
+<%@ page import="org.dimigo.VO.UserVO" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,33 +33,6 @@
 
         </div>
     </div>
-    <script>
-        $(document).ready(function(){
-            // Add smooth scrolling to all links
-            $("a").on('click', function(event) {
-
-                // Make sure this.hash has a value before overriding default behavior
-                if (this.hash !== "") {
-                    // Prevent default anchor click behavior
-                    event.preventDefault();
-
-                    // Store hash
-                    var hash = this.hash;
-
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800, function(){
-
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                } // End if
-            });
-        });
-    </script>
-
     <script src="../js/scrolling_lists.js"></script>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top nav_trans fontb" id="mynav">
         <a class="navbar-brand"><img src="../image/logo.png" width="50" style="margin-right:10px;" alt="로고" />YGH</a>
@@ -85,51 +60,21 @@
                     <a class="nav-link" href="#itshoni">회원가입</a>
                 </li>
             </ul>
-            <form class="form-inline " id="login_form">
-                <input class="form-control mr-sm-2" type="text" placeholder="ID" id="id" required>
-                <input class="form-control mr-sm-2" type="password" style="font-family: Arial !important"  placeholder="PW" id="pwd" required>
-                <input class="btn btn-success my-2 my-sm-0" type="submit" value="로그인">
-            </form>
+            <%
+                UserVO user = (UserVO)session.getAttribute("user");
+                if(user==null){
+            %>
+            <button class="btn btn-success my-2 my-sm-0" onclick="location.href='./login.jsp'">로그인</button>
+            <%
+                } else {
+            %>
+            <p>사용자 이름: <%=user.getName()%></p>
+            <button class="btn btn-danger my-2 my-sm-0" onclick="location.href='/bloglogout'">로그아웃</button>
+            <%
+                }
+            %>
         </div>
     </nav>
-    <script>
-        var navheight = $('#mynav').height();
-        function checkScroll(){
-            var startY = navheight * 2; //The point where the navbar changes in px
-
-            if($(window).scrollTop() > startY){
-                $('#mynav').addClass("bg-dark");
-            }else{
-                $('#mynav').removeClass("bg-dark");
-            }
-        }
-
-        if($('#mynav').length > 0){
-            $(window).on("scroll load resize", function(){
-                checkScroll();
-            });
-        }
-
-        $(document).ready(function(){
-            $('#login_form').submit(function(){
-                event.preventDefault();
-
-                //id, pwd를 가져오기
-                var id = $('#id').val();
-                var pwd = $('#pwd').val();
-
-                $.post("http://httpbin.org/post",
-                    {"id": id, "pwd" : pwd},
-                    function(data){
-                        //alert(data.form.id+'님 로그인 되었습니다.');
-                        var myModal = $('#myModal');
-                        myModal.modal();
-                        myModal.find('.modal-body').text(data.form.id+'님 로그인 되었습니다.')
-                    });
-            })
-        })
-
-    </script>
 </div>
 <div class="bg_image_1 fontb" id="intro">
     <div class="caption">
@@ -319,31 +264,9 @@
 
     </div>
 </div>
-<script>
 
-    $(document).ready(function(){
-        $('#form_submit').submit(function(){
-            event.preventDefault();
-            var GD = parseInt($(":input:radio[name=Grade]:checked").val());
-            var gumi = parseInt($("#selectBox option:selected").val());
+<script src="../js/blog.js"></script>
 
-            //id, pwd를 가져오기
-            var namae = $('#namae').val();
-            var bango = $('#bango').val();
-
-            $.post("http://httpbin.org/post",
-                {"GD": GD, "gumi" : gumi, "namae": namae, "bango": bango},
-                function(data){
-                    var myModal = $('#myModal');
-
-                    myModal.modal();
-                    myModal.find('.modal-body').text(data.form.namae+'님 가입되었습니다.')
-                });
-        });
-    });
-
-    init($('#opa2'));
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 </body>

@@ -45,7 +45,7 @@ function menu_out(e) {
 	  <%-- 세션에 사용자 정보가 없는 경우 --%>
     	<a class="text-bold text-white" style="text-decoration: none" href="./login.jsp">Sign in</a>
     	<span class="text-bold text-white">&nbsp; or &nbsp;</span>
-    	<a class="text-bold text-white" style="text-decoration: none" href="">Sign up</a>
+    	<a class="text-bold text-white" style="text-decoration: none" href="./signup.jsp">Sign up</a>
       <%
           }
           else{
@@ -59,7 +59,9 @@ function menu_out(e) {
 	    	<%=user.getNickname()%>님
 	      </a>
 	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
-	      	<button type="submit" class="dropdown-item">Sign out</button>
+              <form action = "/logout" method = "post">
+                  <button type = "submit" class="dropdown-item">Sign out</button>
+              </form>
 	       	<div class="dropdown-divider"></div>
 	        <button type="button" class="dropdown-item">Action1</button>
 	        <button type="button" class="dropdown-item">Action2</button>
