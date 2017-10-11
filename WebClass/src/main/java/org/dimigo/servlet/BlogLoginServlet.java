@@ -31,12 +31,12 @@ public class BlogLoginServlet extends HttpServlet {
             user.setNickname("사용자 닉네임");
             user.setName("사용자 이름");
             session.setAttribute("user", user);
-            RequestDispatcher rd = request.getRequestDispatcher("myblog/index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/myblog/index.jsp");
             rd.forward(request,response);
         }
         else{
             session.setAttribute("msg", "ERROR");
-            RequestDispatcher rd = request.getRequestDispatcher("myblog/login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/myblog/login.jsp");
             rd.forward(request,response);
         }
 

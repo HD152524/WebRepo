@@ -17,7 +17,7 @@ public class BlogLogoutServlet extends HttpServlet {
         session.invalidate();
 
 
-        response.sendRedirect("myblog/index.jsp");
+        response.sendRedirect("/WebClass/myblog/index.jsp");
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);

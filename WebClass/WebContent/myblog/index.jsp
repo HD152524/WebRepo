@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/blog_css.css"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="../js/scrolling_lists.js"></script>
-
 </head>
 <body>
 <div id = "navbar">
@@ -69,7 +68,7 @@
                 } else {
             %>
             <p>사용자 이름: <%=user.getName()%></p>
-            <button class="btn btn-danger my-2 my-sm-0" onclick="location.href='/bloglogout'">로그아웃</button>
+            <button class="btn btn-danger my-2 my-sm-0" onclick="location.href='/WebClass/bloglogout'">로그아웃</button>
             <%
                 }
             %>
