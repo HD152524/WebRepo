@@ -35,7 +35,7 @@ public class BlogLoginServlet extends HttpServlet {
             rd.forward(request,response);
         }
         else{
-            session.setAttribute("msg", "ERROR");
+            request.setAttribute("msg", "ERROR");
             RequestDispatcher rd = request.getRequestDispatcher("/myblog/login.jsp");
             rd.forward(request,response);
         }
