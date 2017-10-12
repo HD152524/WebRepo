@@ -12,9 +12,7 @@
 <body>
 <%
     String id = request.getParameter("id");
-    String pwd = request.getParameter("pwd");
     if(id==null) id="";
-    if(pwd==null) pwd="";
 %>
 <div class="container">
   <form class="form-signin" action="/WebClass/bloglogin" method="post">
@@ -24,7 +22,7 @@
     <input type="email" name="id" id="inputEmail" class="form-control" placeholder="Email address" value="<%=id%>" required autofocus>
     
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" value="<%=pwd%>" required>
+    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   </form>
