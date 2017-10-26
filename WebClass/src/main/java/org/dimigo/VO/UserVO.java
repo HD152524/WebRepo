@@ -27,4 +27,12 @@ public class UserVO {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
+
+    public UserVO(){}
+
+    public UserVO(String id, String name, String nickname) {
+        this.id = id;
+        this.name = name;
+        this.nickname = nickname;
+    }
 }

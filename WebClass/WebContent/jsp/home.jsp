@@ -41,6 +41,7 @@ function menu_out(e) {
     <%
         UserVO user = (UserVO)session.getAttribute("user");
         if(user==null){
+
     %>
 	  <%-- 세션에 사용자 정보가 없는 경우 --%>
     	<a class="text-bold text-white" style="text-decoration: none" href="./login.jsp">Sign in</a>
@@ -56,7 +57,7 @@ function menu_out(e) {
 	    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
 	    <li class="nav-item dropdown">
 	      <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    	<%=user.getNickname()%>님
+	    	${user.name}님
 	      </a>
 	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
               <form action = "/logout" method = "post">
